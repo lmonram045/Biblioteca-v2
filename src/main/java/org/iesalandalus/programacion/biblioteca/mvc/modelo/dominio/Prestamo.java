@@ -84,7 +84,7 @@ public class Prestamo {
 	}
 	
 	public Libro getLibro() {
-		return new Libro(libro);
+		return (libro instanceof LibroEscrito) ? new LibroEscrito((LibroEscrito) libro) : new AudioLibro((AudioLibro) libro);
 	}
 	
 	private void setLibro(Libro libro) {
