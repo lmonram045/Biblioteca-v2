@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.biblioteca.mvc.vista;
+package org.iesalandalus.programacion.biblioteca.mvc.vista.texto;
 
 import java.util.List;
 import java.util.Map;
@@ -10,20 +10,24 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
+import org.iesalandalus.programacion.biblioteca.mvc.vista.Consola;
+import org.iesalandalus.programacion.biblioteca.mvc.vista.IVista;
 
-public class Vista {
+public class VistaTexto implements IVista {
 
 	private Controlador controlador;
 
 	/** Constructor por defecto */
-	public Vista() {
+	public VistaTexto() {
 		Opcion.setVista(this);
 	}
 
+	@Override
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
 
+	@Override
 	public void comenzar() {
 		int numeroOpcion;
 		Opcion opcion;
@@ -39,6 +43,7 @@ public class Vista {
 		} while (numeroOpcion != Opcion.SALIR.ordinal());
 	}
 
+	@Override
 	public void terminar() {
 		controlador.terminar();
 	}
